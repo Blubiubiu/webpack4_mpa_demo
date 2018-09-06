@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const merge = require("webpack-merge");
 // 清除目录等
 const cleanWebpackPlugin = require("clean-webpack-plugin");
-//4.x之后用以压缩
+
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
@@ -17,7 +17,6 @@ const webpackConfigProd = {
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		// 打包多出口文件
-		// 生成 a.bundle.[hash].js  b.bundle.[hash].js
 		filename: './js/[name].[hash].js',
 		publicPath: './'
 	},
@@ -46,7 +45,6 @@ const webpackConfigProd = {
 			}
 		}),
 		//上线压缩 去除console等信息webpack4.x之后去除了webpack.optimize.UglifyJsPlugin
-		//https://github.com/mishoo/UglifyJS2/tree/harmony#compress-options
 		new UglifyJSPlugin({
 			uglifyOptions: {
 				compress: {
@@ -55,9 +53,7 @@ const webpackConfigProd = {
 					drop_console: true
 				}
 			}
-		}),
-		//性能打包优化查看
-		new BundleAnalyzerPlugin(),
+		})
 	],
 	module: {
 		rules: []

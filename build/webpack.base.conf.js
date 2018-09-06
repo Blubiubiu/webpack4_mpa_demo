@@ -4,10 +4,6 @@ const glob = require("glob");
 
 require("./env-config");
 
-function resolve(dir) {
-    return path.join(__dirname, dir)
-}
-
 // 分离css
 
 //消除冗余的css
@@ -35,7 +31,6 @@ var getHtmlConfig = function (name, chunks) {
 	};
 };
 
-
 function getEntry() {
     var entry = {};
     //读取src目录所有page入口
@@ -52,7 +47,6 @@ function getEntry() {
         });
     return entry;
 };
-
 
 module.exports = {
 	entry: getEntry(),
@@ -106,8 +100,8 @@ module.exports = {
 
 	]
 }
-//配置页面
 
+//配置页面
 const entryObj = getEntry();
 const htmlArray = [];
 Object.keys(entryObj).forEach(element => {
@@ -117,8 +111,6 @@ Object.keys(entryObj).forEach(element => {
 		chunks: ['vendor', element]
 	})
 })
-
-
 
 //自动生成html模板
 htmlArray.forEach((element) => {
