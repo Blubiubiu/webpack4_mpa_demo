@@ -108,7 +108,7 @@ Object.keys(entryObj).forEach(element => {
 	htmlArray.push({
 		_html: element,
 		title: '',
-		chunks: ['vendor', element]
+		chunks: ['vendor', 'common', element]
 	})
 })
 
