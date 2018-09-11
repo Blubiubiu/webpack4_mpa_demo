@@ -10,8 +10,6 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const extractTextPlugin = require("extract-text-webpack-plugin");
 const webpackConfigBase = require('./webpack.base.conf');
 
-process.env.NODE_ENV = "test"
-
 const webpackConfigProd = {
 	mode: 'production', // 通过 mode 声明生产环境
 	output: {
