@@ -11,6 +11,13 @@ const path = require('path')
  * */
 const ENV_LIST = [
     {
+        //本地环境
+        envName: 'local',
+        dirName: 'local',
+        baseUrl: 'http://199.xxx.xxx',
+        assetsPublicPath:'/'
+    },
+    {
         //开发环境
         envName: 'dev',
         dirName: 'dev',

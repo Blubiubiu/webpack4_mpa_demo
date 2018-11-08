@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run build --[test]",
+    "local": "npm run dev --[local]",
     "dev": "cross-env NODE_ENV=development webpack-dev-server  --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js",
     "server": "live-server ./ --port=8888"
