@@ -7,3 +7,8 @@ webpack4搭建多页面多环境demo
 
 ## v 1.0.2 改动
 添加公共代码提取，minChunks: 2
+
+## v 1.0.3 改动
+增加本地调试方法
+npm run local
+其余方法npm run dev, npm run test等均为build方法，如需变更，请去package.json中以及env-config中自行修改
