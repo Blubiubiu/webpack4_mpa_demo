@@ -28,7 +28,7 @@ const webpackConfigDev = {
         port: "8090",
         overlay: true, // 浏览器页面上显示错误
         // open: true, // 开启浏览器
-        // stats: "errors-only", //stats: "errors-only"表示只打印错误：
+        stats: "errors-only", //stats: "errors-only"表示只打印错误：
         hot: true, // 开启热更新
         //服务器代理配置项
         proxy: {
