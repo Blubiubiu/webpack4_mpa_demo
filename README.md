@@ -22,4 +22,8 @@ npm run local
 ##### 例如当我在dev、test环境应该执行的是npm run dev，在staging、灰度、master的时候是npm run build
 ##### 而你们在服务器build的时候，无论是自动部署还是手动部署，只要知道了环境也就能分清是应该运行哪个命令
 
+
+## v 1.0.5 改动
+##### 添加html---hot reload，您需要在js文件中require，可查看index文件中index.js
+
 更多详细介绍可以查看  https://juejin.im/post/5b9116086fb9a05d05307e96
