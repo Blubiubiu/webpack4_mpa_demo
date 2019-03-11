@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const webpackConfigBase = require('./webpack.base.conf');
-
 const webpackConfigDev = {
     mode: 'development', // 通过 mode 声明开发环境
     
@@ -21,7 +20,7 @@ const webpackConfigDev = {
     ],
 
     devtool: "source-map", // 开启调试模式
-    
+
     devServer: {
         contentBase: path.join(__dirname, "../src"),
         publicPath: '/',
