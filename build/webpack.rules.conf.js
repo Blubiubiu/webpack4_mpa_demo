@@ -50,7 +50,12 @@ const rules = [{
     {
         test: /\.html$/,
         // html中的img标签
-        use: ["raw-loader"]
+        use: {
+            loader: 'html-loader?config=raw-loader',
+            options: {
+                attrs: ['img:src']
+            }
+        }
     }, {
         test: /\.less$/,
         // 三个loader的顺序不能变
