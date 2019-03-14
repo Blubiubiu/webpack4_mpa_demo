@@ -18,7 +18,7 @@ var getHtmlConfig = function (name, chunks) {
         // favicon: './favicon.ico',
         // title: title,
         inject: true,
-        hash: true, //开启hash  ?[hash]
+        hash: false, //开启hash  ?[hash]
         chunks: chunks,
         minify: process.env.NODE_ENV !== "production" ? false : {
             removeComments: true, //移除HTML中的注释
