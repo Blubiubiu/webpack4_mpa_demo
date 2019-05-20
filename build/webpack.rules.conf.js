@@ -1,24 +1,12 @@
 const extractTextPlugin = require("extract-text-webpack-plugin");
 const rules = [{
         test: /\.(css|scss|sass)$/,
-        // 不分离的写法
-        // use: ["style-loader", "css-loader",sass-loader"]
-        // 使用postcss不分离的写法
-        // use: ["style-loader", "css-loader", "sass-loader","postcss-loader"]
-        // 此处为分离css的写法
-        /*use: extractTextPlugin.extract({
-        	fallback: "style-loader",
-        	use: ["css-loader", "sass-loader"],
-        	// css中的基础路径
-        	publicPath: "../"
-        })*/
         // 区别开发环境和生成环境
         use: process.env.NODE_ENV === "development" ? ["style-loader", "css-loader", "sass-loader", "postcss-loader"] : extractTextPlugin.extract({
             fallback: "style-loader",
             use: ["css-loader", "sass-loader", "postcss-loader"],
             // css中的基础路径
             publicPath: "../"
-
         })
     },
     {
@@ -68,9 +56,6 @@ const rules = [{
             // css中的基础路径
             publicPath: "../"
         })
-    }, {
-        test: require.resolve('zepto'),
-        loader: 'exports-loader?window.Zepto!script-loader'
     }
 ];
 module.exports = rules;

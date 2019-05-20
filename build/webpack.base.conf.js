@@ -10,15 +10,14 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 //静态资源输出
 const copyWebpackPlugin = require("copy-webpack-plugin");
 const rules = require("./webpack.rules.conf.js");
+
 // 获取html-webpack-plugin参数的方法
 var getHtmlConfig = function (name, chunks) {
     return {
         template: `./src/pages/${name}/index.html`,
         filename: `${name}.html`,
-        // favicon: './favicon.ico',
-        // title: title,
         inject: true,
-        hash: false, //开启hash  ?[hash]
+        hash: false, //开启hash
         chunks: chunks,
         minify: process.env.NODE_ENV !== "production" ? false : {
             removeComments: true, //移除HTML中的注释
@@ -38,7 +37,7 @@ function getEntry() {
             var eArr = [];
             var n = name.slice(start, end);
             n = n.slice(0, n.lastIndexOf('/')); //保存各个组件的入口 
-            n = n.split('/')[1];
+            n = n.split('pages/')[1];
             eArr.push(name);
             entry[n] = eArr;
         });
