@@ -8,7 +8,7 @@
     "local": "npm run dev --m local",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js ",
     "build": "cross-env webpack --config build/webpack.prod.conf.js",
-    "server": "live-server ./ --port=8888"
+    "server": "live-server ./dist --port=8888"
   },
   "author": "lsy",
   "license": "ISC",
