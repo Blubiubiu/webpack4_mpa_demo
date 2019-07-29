@@ -11,7 +11,7 @@ const webpackConfigDev = {
 		filename: './js/[name].bundle.js'
 	},
 	devServer: {
-		contentBase: path.join(__dirname, "../src"),
+		contentBase: path.join(__dirname, "../src/pages/index"),
 		publicPath:'/',
 		host: "127.0.0.1",
 		port: "8090",

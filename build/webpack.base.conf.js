@@ -17,11 +17,10 @@ const rules = require("./webpack.rules.conf.js");
 var getHtmlConfig = function (name, chunks) {
 	return {
 		template: `./src/pages/${name}/index.html`,
-		filename: `${name}.html`,
-		// favicon: './favicon.ico',
-		// title: title,
+        filename: process.env.NODE_ENV === "production"? `./html/${name}/index.html`: `${name}/index.html`,
+		// filename: `${name}.html`,        
 		inject: true,
-		hash: true, //开启hash  ?[hash]
+		hash: false, //开启hash  ?[hash]
 		chunks: chunks,
 		minify: process.env.NODE_ENV === "development" ? false : {
 			removeComments: true, //移除HTML中的注释
@@ -83,10 +82,6 @@ module.exports = {
 		}
     },
 	plugins: [
-		// 全局暴露统一入口
-		new webpack.ProvidePlugin({
-		
-		}),
 		//静态资源输出
 		new copyWebpackPlugin([{
 			from: path.resolve(__dirname, "../src/assets"),
