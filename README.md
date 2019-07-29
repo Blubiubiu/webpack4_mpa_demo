@@ -2,6 +2,10 @@
 webpack4搭建多页面多环境demo
 
 ## v 1.0.6 改动
+#### 解决打包后页面路径出错问题
+#### 限定页面创建结构为 src/pages/${your_file}/index.html
+
+## v 1.0.6 改动
 #### 删除冗余代码
 #### 解决深层目录无法使用问题，现在可以在src/pages 文件中录入深层次文件夹，添加新文件需要重新npm run local
 #### 解决html热更新问题，无需再在js文件中require
