@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const webpackConfigBase = require('./webpack.base.conf');
-
 const webpackConfigDev = {
 	mode: 'development', // 通过 mode 声明开发环境
 	output: {
@@ -21,25 +20,12 @@ const webpackConfigDev = {
 		hot: true, // 开启热更新
 		//服务器代理配置项
         proxy: {
-            '/test/*':{
+            '/testing/*': {
                 target: 'https://www.baidu.com',
                 secure: true,
                 changeOrigin: true
             }
         }
-	},
-	plugins: [
-		//热更新
-		new webpack.HotModuleReplacementPlugin(),
-		
-		new webpack.DefinePlugin({
-			'process.env.BASE_URL': '\"' + process.env.BASE_URL + '\"'
-		})
-		  
-	],
-	devtool: "source-map",  // 开启调试模式
-	module: {
-		rules: []
-	},
+    },
 }
 module.exports = merge(webpackConfigBase, webpackConfigDev);
