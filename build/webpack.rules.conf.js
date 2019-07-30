@@ -1,4 +1,3 @@
-const path = require('path');
 const extractTextPlugin = require("extract-text-webpack-plugin");
 const rules = [{
         test: /\.(css|scss|sass)$/,
@@ -7,7 +6,7 @@ const rules = [{
             fallback: "style-loader",
             use: ["css-loader", "sass-loader", "postcss-loader"],
             // css中的基础路径
-            publicPath: "/"
+            publicPath: "../"
         })
     },
     {
@@ -25,6 +24,7 @@ const rules = [{
             options: {
                 limit: 5 * 1024, //小于这个时将会已base64位图片打包处理
                 // 图片文件输出的文件夹
+                publicPath: "../images",
                 outputPath: "images"
             }
         }]

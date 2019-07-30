@@ -15,7 +15,7 @@ const webpackConfigProd = {
 		path: path.resolve(__dirname, '../dist'),
 		// 打包多出口文件
         filename: 'js/[name].[hash].js',
-        publicPath: './'
+        publicPath: '../'
     },
     
     devtool: 'cheap-module-eval-source-map',
