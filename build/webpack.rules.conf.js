@@ -1,3 +1,4 @@
+const path = require('path');
 const extractTextPlugin = require("extract-text-webpack-plugin");
 const rules = [{
         test: /\.(css|scss|sass)$/,
@@ -19,7 +20,7 @@ const rules = [{
     }, {
         test: /\.(png|jpg|gif)$/,
         use: [{
-            // 需要下载file-loader和url-loader
+            // 需要下载url-loader
             loader: "url-loader",
             options: {
                 limit: 5 * 1024, //小于这个时将会已base64位图片打包处理
@@ -29,19 +30,13 @@ const rules = [{
         }]
     },
     {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-            limit: 10000,
-        }
-    },
-    {
         test: /\.html$/,
         // html中的img标签
         use: {
-            loader: 'html-loader?config=raw-loader',
+            loader: 'html-loader',
             options: {
-                attrs: ['img:src']
+                attrs: ['img:src', 'img:data-src', 'audio:src'],
+                minimize: true
             }
         }
     }

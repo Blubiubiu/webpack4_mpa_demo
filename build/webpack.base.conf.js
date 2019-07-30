@@ -13,19 +13,18 @@ const rules = require("./webpack.rules.conf.js");
 
 // 获取html-webpack-plugin参数的方法
 var getHtmlConfig = function (name, chunks) {
-	return {
-		template: `./src/pages/${name}/index.html`,
-        filename: process.env.NODE_ENV === "development"? `${name}.html`: `html/${name}/index.html`,
-		// filename: `${name}.html`,        
-		inject: true,
-		hash: false, //开启hash  ?[hash]
-		chunks: chunks,
-		minify: process.env.NODE_ENV === "development" ? false : {
-			removeComments: true, //移除HTML中的注释
-			collapseWhitespace: true, //折叠空白区域 也就是压缩代码
-			removeAttributeQuotes: true, //去除属性引用
-		},
-	};
+    return {
+        template: `./src/pages/${name}/index.html`, 
+        filename: `${name.slice(name.lastIndexOf('/') + 1)}.html`,
+        inject: true,
+        hash: false, //开启hash  ?[hash]
+        chunks: chunks,
+        minify: process.env.NODE_ENV === "development" ? false : {
+            removeComments: true, //移除HTML中的注释
+            collapseWhitespace: true, //折叠空白区域 也就是压缩代码
+            removeAttributeQuotes: true, //去除属性引用
+        },
+    };
 };
 
 function getEntry() {
@@ -79,17 +78,17 @@ module.exports = {
             }
         }
     },
-	plugins: [
-		//静态资源输出
-		new copyWebpackPlugin([{
-			from: path.resolve(__dirname, "../src/assets"),
-			to: './assets',
-			ignore: ['.*']
-		}]),
-		// 消除冗余的css代码
-		new purifyCssWebpack({
-			paths: glob.sync(path.join(__dirname, "../src/pages/*/*.html"))
-		})
+    plugins: [
+        //静态资源输出
+        new copyWebpackPlugin([{
+            from: path.resolve(__dirname, "../src/static"),
+            to: './static',
+            ignore: ['.*']
+        }]),
+        // 消除冗余的css代码
+        new purifyCssWebpack({
+            paths: glob.sync(path.join(__dirname, "../src/pages/*/*.html"))
+        })
     ]
 }
 
