@@ -15,7 +15,7 @@ const rules = require("./webpack.rules.conf.js");
 var getHtmlConfig = function (name, chunks) {
     return {
         template: `./src/pages/${name}/index.html`, 
-        filename: `html/${name.slice(name.lastIndexOf('/') + 1)}.html`,
+        filename: process.env.NODE_ENV === "development"? `${name.slice(name.lastIndexOf('/') + 1)}.html`:`html/${name.slice(name.lastIndexOf('/') + 1)}.html`,
         inject: true,
         hash: false, //开启hash  ?[hash]
         chunks: chunks,
