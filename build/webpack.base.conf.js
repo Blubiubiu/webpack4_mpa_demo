@@ -15,7 +15,7 @@ const rules = require("./webpack.rules.conf.js");
 var getHtmlConfig = function (name, chunks) {
 	return {
 		template: `./src/pages/${name}/index.html`,
-        filename: process.env.NODE_ENV === "development"? `${name}/index.html`: `./html/${name}/index.html`,
+        filename: process.env.NODE_ENV === "development"? `${name}.html`: `html/${name}/index.html`,
 		// filename: `${name}.html`,        
 		inject: true,
 		hash: false, //开启hash  ?[hash]
@@ -89,17 +89,7 @@ module.exports = {
 		// 消除冗余的css代码
 		new purifyCssWebpack({
 			paths: glob.sync(path.join(__dirname, "../src/pages/*/*.html"))
-		}),
-        //静态资源输出
-        new copyWebpackPlugin([{
-            from: path.resolve(__dirname, "../src/assets"),
-            to: './assets',
-            ignore: ['.*']
-        }]),
-        // 消除冗余的css代码
-        new purifyCssWebpack({
-            paths: glob.sync(path.join(__dirname, "../src/pages/*/*.html"))
-        })
+		})
     ]
 }
 

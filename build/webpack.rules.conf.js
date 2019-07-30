@@ -6,7 +6,7 @@ const rules = [{
             fallback: "style-loader",
             use: ["css-loader", "sass-loader", "postcss-loader"],
             // css中的基础路径
-            publicPath: "../"
+            publicPath: "/"
         })
     },
     {
@@ -44,18 +44,6 @@ const rules = [{
                 attrs: ['img:src']
             }
         }
-    }, {
-        test: /\.less$/,
-        // 三个loader的顺序不能变
-        // 不分离的写法
-        // use: ["style-loader", "css-loader", "less-loader"]
-        // 区别开发环境和生成环境
-        use: process.env.NODE_ENV === "development" ? ["style-loader", "css-loader", "less-loader"] : extractTextPlugin.extract({
-            fallback: "style-loader",
-            use: ["css-loader", "less-loader"],
-            // css中的基础路径
-            publicPath: "../"
-        })
     }
 ];
 module.exports = rules;

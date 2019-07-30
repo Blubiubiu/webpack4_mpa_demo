@@ -7,7 +7,7 @@ const webpackConfigDev = {
 	output: {
 		path: path.resolve(__dirname, '../dist'),
 		// 打包多出口文件
-		filename: './js/[name].bundle.js'
+		filename: 'js/[name].bundle.js'
 	},
 	devServer: {
 		contentBase: path.join(__dirname, "../src/pages/index"),
