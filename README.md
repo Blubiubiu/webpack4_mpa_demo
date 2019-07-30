@@ -4,6 +4,8 @@ webpack4搭建多页面多环境demo
 ## v 1.0.7 改动
 #### 解决打包后页面路径出错问题
 #### 限定页面创建结构为 src/pages/${your_file}/index.html
+#### 本地测试请使用npm run local
+#### 生产打包请使用npm run pro
 
 ## v 1.0.6 改动
 #### 删除冗余代码
