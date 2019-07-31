@@ -35,7 +35,6 @@
     "optimize-css-assets-webpack-plugin": "^4.0.1",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.5",
-    "postcss-plugin-px2rem": "^0.7.0",
     "postcss-url": "^7.3.2",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
